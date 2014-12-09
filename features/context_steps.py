@@ -7,7 +7,9 @@ from lettuce import step, world
 
 @step(u'I am out of any context')
 def out_of_any_context(step):
-    world.process = None
+    if hasattr(world, 'process'):
+        world.process.kill()
+        world.process = None
 
 
 @step(u'I type `with (.+)`$')
