@@ -1,19 +1,7 @@
 #!/usr/bin/env python
 import asyncio
-import subprocess
-import sys
 
-from prompt_toolkit.shortcuts import prompt_async
-
-
-@asyncio.coroutine
-def main():
-    cmd = sys.argv[1]
-
-    while True:
-        sub = yield from prompt_async('{}… '.format(cmd), patch_stdout=True)
-        call = '{cmd} {sub}'.format(cmd=cmd, sub=sub)
-        subprocess.check_call(call, shell=True)
+from withtool import main
 
 
 loop = asyncio.get_event_loop()
