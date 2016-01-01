@@ -14,7 +14,7 @@ def out_of_any_context(context):
 @when('I type `with {command}`')
 def type_with(context, command):
     context.process = subprocess.Popen(
-        "{cwd}/with.py {command}".format(cwd=os.getcwd(), command=command),
+        "{cwd}/bin/with {command}".format(cwd=os.getcwd(), command=command),
         shell=True,
         stdin=subprocess.PIPE,
         stdout=subprocess.PIPE,
