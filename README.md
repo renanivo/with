@@ -1,7 +1,8 @@
 with
 ====
+[![Build Status](https://travis-ci.org/renanivo/with.svg)](https://travis-ci.org/renanivo/with)
 
-DRY typing
+A shell context manager
 
 
 Usage
