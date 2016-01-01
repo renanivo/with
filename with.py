@@ -1,7 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 import subprocess
 import sys
 
@@ -19,8 +16,8 @@ while True:
         call = '{cmd} {sub}'.format(cmd=cmd, sub=sub)
         subprocess.check_call(call, shell=True)
 
-    except KeyboardInterrupt, EOFError:
+    except (KeyboardInterrupt, EOFError):
         sys.exit()
 
-    except subprocess.CalledProcessError, e:
+    except subprocess.CalledProcessError as e:
         pass
