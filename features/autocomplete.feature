@@ -5,6 +5,6 @@ Feature: Autocomplete
 
     Scenario: History autocomplete
         Given I have "git status" in my bash history
-        And I type `with git`
-        When I type `st` and press <tab>
+        When I type `with git`
+        And I type `st` and press <tab>
         Then I see that "status" was filled
