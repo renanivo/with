@@ -1,5 +1,5 @@
 import os
-import subprocess
+import pexpect
 
 from behave import given, when, then
 
@@ -7,28 +7,24 @@ from behave import given, when, then
 @given('I am out of any context')
 def out_of_any_context(context):
     if hasattr(context, 'process'):
-        context.process.kill()
+        context.process.kill(9)
         context.process = None
 
 
 @when('I type `with {command}`')
 def type_with(context, command):
-    context.process = subprocess.Popen(
-        "{cwd}/bin/with {command}".format(cwd=os.getcwd(), command=command),
-        shell=True,
-        stdin=subprocess.PIPE,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        universal_newlines=True
+    context.process = pexpect.spawn(
+        "{cwd}/bin/with {command}".format(cwd=os.getcwd(), command=command)
     )
 
 
 @when('I type `{subcommand}`')
 def type(context, subcommand):
-    context.stdout, context.stderr = context.process.communicate(subcommand)
+    context.process.expect('git')
+    context.process.sendline(subcommand)
 
 
-@then('I see an output equal to the command `{command}`')
-def then_i_see_the_output_of_the_command_git_status(context, command):
-    cmd_out = subprocess.check_output(command, shell=True).decode('utf-8')
-    assert cmd_out in context.stdout
+@then('I see "{expected}" in the output')
+def then_i_see_the_output_of_the_command_git_status(context, expected):
+    context.process.expect('branch')
+    assert expected in context.process.after.decode('utf-8')

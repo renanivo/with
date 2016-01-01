@@ -7,4 +7,4 @@ Feature: Context switching
         Given I am out of any context
         When I type `with git`
         And I type `status`
-        Then I see an output equal to the command `git status`
+        Then I see "branch" in the output
