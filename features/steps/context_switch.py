@@ -20,11 +20,10 @@ def type_with(context, command):
 
 @when('I type `{subcommand}`')
 def type(context, subcommand):
-    context.process.expect('git')
     context.process.sendline(subcommand)
 
 
 @then('I see "{expected}" in the output')
 def then_i_see_the_output_of_the_command_git_status(context, expected):
-    context.process.expect('branch')
+    context.process.expect(expected)
     assert expected in context.process.after.decode('utf-8')

@@ -5,6 +5,6 @@ Feature: Context switching
 
     Scenario: Run a command in a context
         Given I am out of any context
-        When I type `with git`
-        And I type `status`
-        Then I see "branch" in the output
+        When I type `with echo`
+        And I type `works`
+        Then I see "works" in the output
