@@ -19,6 +19,7 @@ setup(
     scripts=['bin/with'],
     install_requires=[
         'prompt-toolkit==0.54',
+        'appdirs==1.4.0',
     ],
     packages=['withtool']
 )

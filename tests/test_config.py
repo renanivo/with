@@ -1,10 +1,17 @@
 import os
 from shutil import rmtree
 
+import pytest
+from appdirs import AppDirs
+
 from withtool.config import get_config
 
 
 class DescribeGetConfig(object):
+
+    @pytest.fixture
+    def app_dirs(self):
+        return AppDirs(appname='with', appauthor='Renan Ivo')
 
     def teardown(self):
         config = get_config()
@@ -23,3 +30,7 @@ class DescribeGetConfig(object):
         assert os.path.isdir(
             config['history_dir']
         )
+
+    def it_puts_the_history_in_users_cache_dir(self, app_dirs):
+        config = get_config()
+        assert app_dirs.user_cache_dir in config['history_dir']
