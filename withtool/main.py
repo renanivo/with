@@ -1,8 +1,8 @@
 import sys
 import asyncio
-import subprocess
 
 from withtool.prompt import get_prompt
+from withtool.subprocess import run
 
 
 @asyncio.coroutine
@@ -12,4 +12,4 @@ def main():
     while True:
         sub = yield from get_prompt(command)
         call = '{cmd} {sub}'.format(cmd=command, sub=sub)
-        subprocess.check_call(call, shell=True)
+        run(call)
