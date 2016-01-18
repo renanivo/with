@@ -21,5 +21,12 @@ setup(
         'prompt-toolkit==0.54',
         'appdirs==1.4.0',
     ],
-    packages=['withtool']
+    packages=['withtool'],
+    classifiers=[
+        'Environment :: Console',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: MIT License',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python :: 3 :: Only',
+    ]
 )
