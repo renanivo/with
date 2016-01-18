@@ -10,6 +10,7 @@ from withtool.config import get_config
 
 def get_prompt(command):
     config = get_config()
+    sub = ''
 
     try:
         sub = yield from prompt_async(
@@ -18,6 +19,9 @@ def get_prompt(command):
             history=get_history(config['history_dir'], command),
             auto_suggest=AutoSuggestFromHistory()
         )
+    except KeyboardInterrupt:
+        yield from get_prompt(command)
+
     except EOFError:
         print('bye')
         sys.exit()
