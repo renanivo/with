@@ -18,8 +18,9 @@ setup(
     keywords='context manager shell command line repl',
     scripts=['bin/with'],
     install_requires=[
-        'prompt-toolkit==0.54',
         'appdirs==1.4.0',
+        'docopt==0.6.2',
+        'prompt-toolkit==0.54',
     ],
     packages=['withtool'],
     classifiers=[
