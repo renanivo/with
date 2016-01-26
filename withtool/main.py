@@ -1,4 +1,3 @@
-import sys
 import asyncio
 
 from docopt import docopt
