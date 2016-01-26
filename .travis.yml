@@ -1,5 +1,4 @@
 language: python
-
 python:
   - 3.4
   - 3.5
@@ -9,8 +8,18 @@ cache:
     - $HOME/.cache/pip
 
 install:
-    - pip install -r requirements-dev.txt
+  - pip install -r requirements-dev.txt
 
 script:
   - py.test -v tests/
   - behave
+
+deploy:
+  provider: pypi
+  user: renanivo
+  password:
+    secure: F0RvLPFkHrvYXUh7wRByQgj8IW9mPa1RRODOYYmChkomNEsJNf3lacPwFiTcmilKdB1KGs93QodbqbQ23wPSyG6ChhGGvMJHMIDDpgo/vpRuYM8LxYkCJvV9tqv0dVzwhwfPothEvUZe+xLlYFvpaAwo2zod676Zhwi1MADhNrc=
+  on:
+    tags: true
+    distributions: sdist bdist_wheel
+    repo: renanivo/with
