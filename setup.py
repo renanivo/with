@@ -13,7 +13,7 @@ setup(
     name='with',
     version=__version__,
     description='A shell context manager',
-    long_description=read('README.md'),
+    long_description=read('README.rst'),
     author='Renan Ivo',
     author_email='renanivom@gmail.com',
     url='https://github.com/renanivo/with',
