@@ -1,7 +1,7 @@
 import os
 from setuptools import setup
 
-import withtool
+from withtool import __version__
 
 
 def read(fname):
@@ -11,7 +11,7 @@ def read(fname):
 
 setup(
     name='with',
-    version=withtool.__version__,
+    version=__version__,
     description='A shell context manager',
     long_description=read('README.md'),
     author='Renan Ivo',
