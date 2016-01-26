@@ -1,6 +1,8 @@
 import os
 from setuptools import setup
 
+import withtool
+
 
 def read(fname):
     path = os.path.join(os.path.dirname(__file__), fname)
@@ -9,7 +11,7 @@ def read(fname):
 
 setup(
     name='with',
-    version='0.0.1',
+    version=withtool.__version__,
     description='A shell context manager',
     long_description=read('README.md'),
     author='Renan Ivo',
