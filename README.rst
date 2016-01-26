@@ -1,7 +1,7 @@
 with
 ====
 
-|Build Status| |PyPI version|
+|Build Status| |PyPI version| |Coverage|
 
 A shell context manager
 
@@ -31,3 +31,5 @@ Type Ctrl-D to quit.
    :target: https://travis-ci.org/renanivo/with
 .. |PyPI version| image:: https://badge.fury.io/py/with.svg
    :target: https://badge.fury.io/py/with
+.. |Coverage| image:: https://codecov.io/github/renanivo/with/coverage.svg?branch=master
+   :target: https://codecov.io/github/renanivo/with?branch=master

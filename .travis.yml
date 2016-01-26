@@ -7,12 +7,18 @@ cache:
   directories:
     - $HOME/.cache/pip
 
+before_install:
+  - pip install codecov
+
 install:
   - pip install -r requirements-dev.txt
 
 script:
-  - py.test -v tests/
+  - py.test -v tests/ --cov --cov-report=xml
   - behave
+
+after_success:
+  - codecov
 
 deploy:
   provider: pypi
