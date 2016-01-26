@@ -20,6 +20,6 @@ Usage
 
 Type `with` followed to the command you don't want to repeat, than type the subcommand. Eg:
 
-![with git](example.gif)
+![with git](http://i.imgur.com/P6QzNrl.gif)
 
 Type Ctrl-D to quit.
