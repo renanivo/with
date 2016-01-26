@@ -12,6 +12,6 @@ Feature: Context switching
         Then I see "works" in the output
 
     Scenario: Create a context command with spaces and slashes
-        When I type `with "ls ./"`
-        And I type `../`
-        Then I see "../:" in the output
+        When I type `with "ls ../"`
+        And I type `./`
+        Then I see "./:" in the output
