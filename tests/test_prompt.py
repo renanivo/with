@@ -76,3 +76,10 @@ class DescribeGetHistory(object):
     ):
         history = prompt.get_history(history_dir, command)
         assert isinstance(history, History)
+
+    def it_removes_invalid_filename_characters_from_command(
+        self,
+        history_dir
+    ):
+        history = prompt.get_history(history_dir, '*/ -s ^^')
+        os.path.isfile(history.filename)

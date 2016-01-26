@@ -4,6 +4,7 @@ import sys
 from prompt_toolkit.auto_suggest import AutoSuggestFromHistory
 from prompt_toolkit.history import FileHistory
 from prompt_toolkit.shortcuts import prompt_async
+from slugify import slugify
 
 from withtool.config import get_config
 
@@ -30,7 +31,8 @@ def get_prompt(command):
 
 
 def get_history(history_dir, command):
-    filename = os.path.join(history_dir, "{}.history".format(command))
+    safe_name = slugify(command)
+    filename = os.path.join(history_dir, "{}.history".format(safe_name))
 
     if not os.path.isfile(filename):
         with open(filename, 'a', encoding='utf-8') as f:

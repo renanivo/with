@@ -23,6 +23,7 @@ setup(
         'appdirs==1.4.0',
         'docopt==0.6.2',
         'prompt-toolkit==0.54',
+        'python-slugify==1.2.0',
     ],
     packages=['withtool'],
     classifiers=[
