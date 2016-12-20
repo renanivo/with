@@ -4,9 +4,16 @@ import sys
 from prompt_toolkit.auto_suggest import AutoSuggestFromHistory
 from prompt_toolkit.history import FileHistory
 from prompt_toolkit.shortcuts import prompt_async
+from prompt_toolkit.key_binding import manager
+from prompt_toolkit import AbortAction
 from slugify import slugify
 
 from withtool.config import get_config
+
+
+kbmanager = manager.KeyBindingManager.for_prompt()
+registry = kbmanager.registry
+manager.load_basic_system_bindings(registry)
 
 
 def get_prompt(command):
@@ -18,11 +25,10 @@ def get_prompt(command):
             '{}… '.format(command),
             patch_stdout=True,
             history=get_history(config['history_dir'], command),
+            key_bindings_registry=registry,
+            on_abort=AbortAction.RETRY,
             auto_suggest=AutoSuggestFromHistory()
         )
-    except KeyboardInterrupt:
-        yield from get_prompt(command)
-
     except EOFError:
         print('bye')
         sys.exit()

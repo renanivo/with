@@ -29,21 +29,6 @@ class DescribeGetPrompt(object):
             with pytest.raises(SystemExit):
                 yield from prompt.get_prompt('cmd')
 
-    @pytest.mark.asyncio
-    def it_shows_prompt_again_on_keyboard_interrupt(self):
-        with mock.patch('withtool.prompt.prompt_async') as mock_prompt_async:
-            mock_prompt_async.side_effect = (
-                KeyboardInterrupt,
-                ''
-            )
-
-            try:
-                yield from prompt.get_prompt('cmd')
-            except Exception as e:
-                pytest.fail('It should not have raised: {}'.format(e))
-
-        assert mock_prompt_async.call_count == 2
-
 
 class DescribeGetHistory(object):
 
