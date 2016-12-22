@@ -23,9 +23,9 @@ after_success:
 deploy:
   provider: pypi
   user: renanivo
+  distributions: sdist bdist_wheel
   password:
     secure: F0RvLPFkHrvYXUh7wRByQgj8IW9mPa1RRODOYYmChkomNEsJNf3lacPwFiTcmilKdB1KGs93QodbqbQ23wPSyG6ChhGGvMJHMIDDpgo/vpRuYM8LxYkCJvV9tqv0dVzwhwfPothEvUZe+xLlYFvpaAwo2zod676Zhwi1MADhNrc=
   on:
     tags: true
-    distributions: sdist bdist_wheel
     repo: renanivo/with
