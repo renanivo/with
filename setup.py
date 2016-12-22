@@ -1,4 +1,5 @@
 import os
+
 from setuptools import setup
 
 from withtool import __version__

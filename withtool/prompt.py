@@ -1,15 +1,14 @@
 import os
 import sys
 
+from prompt_toolkit import AbortAction
 from prompt_toolkit.auto_suggest import AutoSuggestFromHistory
 from prompt_toolkit.history import FileHistory
-from prompt_toolkit.shortcuts import prompt_async
 from prompt_toolkit.key_binding import manager
-from prompt_toolkit import AbortAction
+from prompt_toolkit.shortcuts import prompt_async
 from slugify import slugify
 
 from withtool.config import get_config
-
 
 kbmanager = manager.KeyBindingManager.for_prompt()
 registry = kbmanager.registry

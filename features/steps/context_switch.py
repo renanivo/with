@@ -1,7 +1,7 @@
 import os
-import pexpect
 
-from behave import given, when, then
+import pexpect
+from behave import given, then, when
 
 
 @given('I am out of any context')

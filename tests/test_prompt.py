@@ -1,11 +1,12 @@
 import os
 import types
-from unittest import mock
 from shutil import rmtree
+from unittest import mock
 
 import pytest
-from withtool import prompt
 from prompt_toolkit.history import History
+
+from withtool import prompt
 
 
 class DescribeGetPrompt(object):
