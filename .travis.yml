@@ -14,6 +14,8 @@ install:
   - pip install -r requirements-dev.txt
 
 script:
+  - isort --check
+  - flake8
   - py.test -v tests/ --cov --cov-report=xml
   - behave
 
