@@ -22,7 +22,7 @@ setup(
     keywords='context manager shell command line repl',
     scripts=['bin/with'],
     install_requires=[
-        'appdirs==1.4.0',
+        'appdirs==1.4.2',
         'docopt==0.6.2',
         'prompt-toolkit==1.0',
         'python-slugify==1.2.1',
