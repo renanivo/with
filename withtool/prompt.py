@@ -5,8 +5,8 @@ from prompt_toolkit import AbortAction, key_binding
 from prompt_toolkit.auto_suggest import AutoSuggestFromHistory
 from prompt_toolkit.history import FileHistory
 from prompt_toolkit.shortcuts import prompt_async
-
 from slugify import slugify
+
 from withtool.config import get_config
 
 registry = key_binding.defaults.load_key_bindings_for_prompt()
