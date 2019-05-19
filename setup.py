@@ -24,7 +24,7 @@ setup(
     install_requires=[
         'appdirs>=1.4.3',
         'docopt>=0.6.2',
-        'prompt-toolkit>=1.0.14',
+        'prompt-toolkit~=1.0.14',
         'python-slugify>=1.2.3',
     ],
     packages=['withtool'],
