@@ -41,11 +41,11 @@ class DescribeGetHistory(object):
     def command(self):
         return 'cat'
 
-    def setup(self):
-        os.mkdir(self.history_dir())
-
-    def teardown(self):
-        rmtree(self.history_dir())
+    @pytest.fixture(autouse=True)
+    def setup_history_dir(self, history_dir):
+        os.mkdir(history_dir)
+        yield
+        rmtree(history_dir)
 
     def it_creates_the_history_file_when_not_found(
         self,
@@ -53,7 +53,7 @@ class DescribeGetHistory(object):
         command
     ):
         history = prompt.get_history(history_dir, command)
-        os.path.isfile(history.filename)
+        assert os.path.isfile(history.filename)
 
     def it_returns_a_prompt_toolkit_history(
         self,
@@ -68,4 +68,4 @@ class DescribeGetHistory(object):
         history_dir
     ):
         history = prompt.get_history(history_dir, '*/ -s ^^')
-        os.path.isfile(history.filename)
+        assert os.path.isfile(history.filename)

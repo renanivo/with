@@ -16,7 +16,7 @@ install:
 script:
   - isort --check
   - flake8
-  - py.test -v tests/ --cov --cov-report=xml
+  - pytest -v tests/ --cov --cov-report=xml
   - behave
 
 after_success:
